@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
 
   s.add_dependency 'parser', '~> 2.6'
-  s.add_dependency 'gli', '~> 2.0'
+  s.add_dependency 'gli', '~> 3.0'
 
   s.executables << 'gelauto'
 
