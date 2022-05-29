@@ -102,6 +102,7 @@ module Gelauto
       @call_trace ||= TracePoint.new(:call) do |tp|
         if md = method_index.find(tp.path, tp.lineno)
           md.args.each do |arg|
+            next unless arg.name
             var = tp.binding.local_variable_get(arg.name)
             arg.types << Gelauto.introspect(var)
           end
