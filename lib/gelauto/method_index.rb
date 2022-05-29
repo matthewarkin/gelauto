@@ -46,7 +46,7 @@ module Gelauto
         return md if md.is_a?(MethodDef)
 
         # md is actually an index pointing to another line
-        find(path, index[path][md])
+        find(path, md)
       end
     end
 
