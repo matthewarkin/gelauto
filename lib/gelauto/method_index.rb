@@ -27,7 +27,7 @@ module Gelauto
           index[path][ast.location.name.line] = md
 
           # point to start of method
-          index[path][ast.location.end.line] = ast.location.name.line
+          index[path][ast.location.end.line] = ast.location.name.line unless index[path].key?(ast.location.end.line)
 
         when :class, :module
           const_name = ast.children.first.children.last
@@ -46,7 +46,7 @@ module Gelauto
         return md if md.is_a?(MethodDef)
 
         # md is actually an index pointing to another line
-        find(path, md)
+        index[path][md]
       end
     end
 
