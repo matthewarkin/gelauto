@@ -3,7 +3,7 @@ require 'gelauto'
 RSpec.configure do |config|
   config.before(:suite) do
     Gelauto.paths += ENV.fetch('GELAUTO_FILES', '').split(/[\s\n,]/).map(&:strip)
-    Gelauto.paths += File.readlines(ENV.fetch('GELAUTO_FILELIST_FILE'))
+    Gelauto.paths += File.readlines(ENV.fetch('GELAUTO_FILELIST_FILE')).map(&:strip)
     puts Gelauto.paths
     Gelauto.setup
   end
